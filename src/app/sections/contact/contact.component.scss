@@ -1,0 +1,97 @@
+.form-control,
+.form-select {
+  background: #fff;
+  border: 1px solid rgba(23, 25, 28, 0.35);
+  border-radius: 0;
+  padding: 0.65rem 0.8rem;
+
+  &:focus {
+    border-color: var(--inchiostro);
+    box-shadow: 0 0 0 3px var(--giallo);
+  }
+}
+
+.form-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.icona-wa {
+  width: 1.3em;
+  height: 1.3em;
+  margin-right: 0.45rem;
+  vertical-align: -0.28em;
+}
+
+.nota-privacy {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: rgba(23, 25, 28, 0.6);
+  max-width: 26rem;
+}
+
+// Scheda contatti: stessa grammatica della scheda tecnica in "Chi siamo"
+.scheda-contatti {
+  border: 1px solid rgba(23, 25, 28, 0.3);
+
+  > div {
+    display: grid;
+    grid-template-columns: minmax(8.5rem, 11rem) 1fr;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(23, 25, 28, 0.3);
+    }
+  }
+
+  dt {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 0.85rem 1rem;
+    border-right: 1px dashed rgba(23, 25, 28, 0.3);
+    display: flex;
+    align-items: center;
+  }
+
+  dd {
+    margin: 0;
+    padding: 0.85rem 1rem;
+
+    a {
+      color: var(--inchiostro);
+      text-decoration-color: var(--giallo);
+      text-decoration-thickness: 2px;
+
+      &:hover {
+        background: var(--giallo);
+      }
+    }
+  }
+}
+
+.mappa {
+  width: 100%;
+  min-height: 320px;
+  border: 1px solid rgba(23, 25, 28, 0.3);
+  filter: grayscale(0.5);
+}
+
+@media (max-width: 575.98px) {
+  .scheda-contatti > div {
+    grid-template-columns: 1fr;
+  }
+
+  .scheda-contatti dt {
+    border-right: 0;
+    padding-bottom: 0;
+  }
+
+  .scheda-contatti dd {
+    padding-top: 0.25rem;
+  }
+}

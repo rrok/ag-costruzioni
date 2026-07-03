@@ -1,59 +1,34 @@
-# AgCostruzioni
+# AG Costruzioni — sito vetrina
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+SPA **Angular 19 + Bootstrap 5**, senza backend: il form contatti apre WhatsApp
+con il messaggio già compilato. Design "cantiere": giallo cantiere, nastro sui
+titoli, schede tecniche in font mono.
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Comandi
 
 ```bash
-ng generate component component-name
+npm install       # prima volta
+npm start         # sviluppo → http://localhost:4200
+npm run build     # produzione → dist/ag-costruzioni/browser
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Il contenuto di `dist/ag-costruzioni/browser` si pubblica su qualsiasi hosting
+statico (Netlify, Vercel, GitHub Pages, Aruba…).
 
-```bash
-ng generate --help
-```
+## Dove si cambia cosa
 
-## Building
+| Cosa                                        | Dove                                                                           |
+| ------------------------------------------- | ------------------------------------------------------------------------------ |
+| Testi, servizi, recensioni, telefono, orari | `src/app/data/site-data.ts`                                                    |
+| **Foto** (sostituire quelle temporanee)     | `public/img/` — sovrascrivi il file mantenendo lo stesso nome (es. `hero.jpg`) |
+| Colori e stile                              | `src/styles.scss` (sezione "Design tokens")                                    |
+| Titolo e descrizione per Google/social      | `src/index.html`                                                               |
+| Sezioni della pagina                        | `src/app/sections/<nome>/`                                                     |
 
-To build the project run:
+## Note
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Il numero WhatsApp è in `site-data.ts` (`whatsapp: '393887729574'`).
+- Le foto attuali sono immagini d'archivio (Unsplash, uso libero) in attesa
+  delle foto reali dei cantieri: c'è una piccola nota nella sezione "Lavori"
+  da togliere quando le sostituisci.
+- Nessun dato utente viene salvato: il messaggio parte dal WhatsApp del visitatore.

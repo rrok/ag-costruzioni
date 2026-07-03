@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#top" (click)="chiudiMenu()">
+      <span class="brand-badge font-display">AG</span>
+      <span class="brand-name font-display">Costruzioni</span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#menu-principale"
+      aria-controls="menu-principale"
+      aria-expanded="false"
+      aria-label="Apri il menu"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu-principale">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1 pt-3 pt-lg-0">
+        @for (voce of voci; track voce.href) {
+          <li class="nav-item">
+            <a class="nav-link" [href]="voce.href" (click)="chiudiMenu()">{{ voce.label }}</a>
+          </li>
+        }
+        <li class="nav-item ms-lg-3 my-2 my-lg-0">
+          <a
+            class="btn btn-primary fw-bold"
+            [href]="'https://wa.me/' + site.whatsapp"
+            target="_blank"
+            rel="noopener"
+            (click)="chiudiMenu()"
+          >
+            WhatsApp
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

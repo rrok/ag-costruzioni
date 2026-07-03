@@ -1,0 +1,72 @@
+.about-foto {
+  position: relative;
+  isolation: isolate;
+  margin: 0 0 0.9rem 0;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 1.4rem -0.9rem -0.9rem 1.4rem;
+    border: 2px solid var(--giallo);
+    z-index: -1;
+  }
+}
+
+.about-testo {
+  color: rgba(247, 245, 241, 0.88);
+  max-width: 38rem;
+}
+
+// Scheda tecnica stile capitolato
+.scheda {
+  margin: 0;
+  border: 1px solid rgba(247, 245, 241, 0.25);
+  max-width: 38rem;
+
+  > div {
+    display: grid;
+    grid-template-columns: minmax(9.5rem, 13rem) 1fr;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(247, 245, 241, 0.25);
+    }
+  }
+
+  dt {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--giallo);
+    padding: 0.85rem 1rem;
+    border-right: 1px dashed rgba(247, 245, 241, 0.25);
+    display: flex;
+    align-items: center;
+  }
+
+  dd {
+    margin: 0;
+    padding: 0.85rem 1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .scheda > div {
+    grid-template-columns: 1fr;
+  }
+
+  .scheda dt {
+    border-right: 0;
+    padding-bottom: 0;
+  }
+
+  .scheda dd {
+    padding-top: 0.25rem;
+  }
+}

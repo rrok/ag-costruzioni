@@ -1,0 +1,39 @@
+.footer {
+  background: var(--inchiostro);
+  color: rgba(247, 245, 241, 0.88);
+}
+
+.brand-badge {
+  background: var(--giallo);
+  color: var(--inchiostro);
+  padding: 0.15rem 0.5rem;
+  font-size: 1.3rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+
+  a {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--bianco-gesso);
+    text-decoration: none;
+    border-bottom: 2px solid var(--giallo);
+    padding-bottom: 0.15rem;
+
+    &:hover,
+    &:focus {
+      color: var(--giallo);
+    }
+  }
+}
+
+.copyright {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: rgba(247, 245, 241, 0.5);
+}

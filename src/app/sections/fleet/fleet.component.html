@@ -1,0 +1,70 @@
+<section id="mezzi" class="section band-concrete">
+  <div class="container">
+    <div class="section-head" appReveal>
+      <p class="eyebrow">Parco mezzi</p>
+      <h2 class="font-display">Facciamo tutto con <span class="tape">mezzi nostri</span></h2>
+      <p class="lead mt-3">
+        Niente noleggi e niente attese: escavatori, furgoni e attrezzature arrivano in
+        cantiere insieme alla squadra.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (mezzo of mezzi; track mezzo.nome) {
+        <div class="col-sm-6 col-lg-3 d-flex" appReveal>
+          <div class="mezzo-card w-100">
+            <div class="mezzo-icona" aria-hidden="true">
+              @switch (mezzo.icona) {
+                @case ('escavatore') {
+                  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="8" y="46" width="30" height="9" rx="4.5" />
+                    <circle cx="15" cy="50.5" r="1.5" />
+                    <circle cx="31" cy="50.5" r="1.5" />
+                    <path d="M13 46v-8a3 3 0 0 1 3-3h10l4 5v6" />
+                    <path d="M30 38l14-13 9 7" />
+                    <path d="M53 32l4 11h-9l1.5-4" />
+                  </svg>
+                }
+                @case ('furgone') {
+                  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 46V24a2 2 0 0 1 2-2h26a2 2 0 0 1 2 2v22" />
+                    <path d="M36 30h11l11 10v6h-6" />
+                    <path d="M6 46h6" />
+                    <path d="M22 46h20" />
+                    <circle cx="17" cy="47" r="4.5" />
+                    <circle cx="47" cy="47" r="4.5" />
+                    <path d="M40 34h6l4 4h-10z" />
+                  </svg>
+                }
+                @case ('camioncino') {
+                  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 42V30l26-4v16" />
+                    <path d="M33 42h-6" />
+                    <path d="M7 42h5" />
+                    <path d="M33 34h8l7 7v1h-3" />
+                    <circle cx="17" cy="44" r="4.5" />
+                    <circle cx="40" cy="44" r="4.5" />
+                    <path d="M52 30l6-2M52 24l4-4M46 22l2-6" />
+                  </svg>
+                }
+                @case ('muletto') {
+                  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="12" y="30" width="22" height="13" rx="2" />
+                    <path d="M20 30v-8h10l4 8" />
+                    <circle cx="18" cy="48" r="5" />
+                    <circle cx="32" cy="48" r="4" />
+                    <path d="M40 20v26" />
+                    <path d="M40 46h13" />
+                    <path d="M40 38h9" />
+                  </svg>
+                }
+              }
+            </div>
+            <h3>{{ mezzo.nome }}</h3>
+            <p>{{ mezzo.descrizione }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,1 +1,183 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==========================================================================
+   AG Costruzioni — stili globali
+   Palette e pattern del sito. Per cambiare i colori basta toccare
+   le variabili qui sotto (sezione "Design tokens").
+   ========================================================================== */
+
+// --- Bootstrap: override delle variabili prima dell'import ---
+@import 'bootstrap/scss/functions';
+
+$primary: #ffc400; // giallo cantiere
+$dark: #17191c;
+$light: #edebe6;
+$body-bg: #edebe6;
+$body-color: #17191c;
+$font-family-sans-serif: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+$border-radius: 0.25rem;
+$link-color: #17191c;
+
+@import 'bootstrap/scss/bootstrap';
+
+// --- Design tokens ---
+:root {
+  --calcestruzzo: #edebe6; // fondo chiaro
+  --cemento: #d8d4cc; // pannello cemento
+  --grafite: #232323; // bande scure
+  --inchiostro: #17191c; // testo
+  --giallo: #ffc400; // giallo cantiere
+  --bianco-gesso: #f7f5f1; // testo su fondo scuro
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--giallo);
+  color: var(--inchiostro);
+}
+
+:focus-visible {
+  outline: 3px solid var(--giallo);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+}
+
+// --- Tipografia display: stile cartellonistica di cantiere ---
+.font-display {
+  font-family: 'Anton', 'Archivo', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.98;
+}
+
+// Etichetta tecnica stile capitolato (mono + quadratino giallo)
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  &::before {
+    content: '';
+    width: 0.62rem;
+    height: 0.62rem;
+    background: var(--giallo);
+    flex: none;
+  }
+}
+
+// --- Nastro giallo da cantiere: la firma del sito ---
+.tape {
+  display: inline-block;
+  background: var(--giallo);
+  color: var(--inchiostro);
+  padding: 0 0.16em;
+  transform: rotate(-1.4deg);
+  box-decoration-break: clone;
+}
+
+// Divisore a strisce oblique giallo/nero
+.hazard {
+  height: 8px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--giallo) 0 14px,
+    var(--inchiostro) 14px 28px
+  );
+}
+
+// --- Sezioni ---
+.section {
+  padding: clamp(4rem, 9vw, 6.5rem) 0;
+}
+
+section[id] {
+  scroll-margin-top: 84px;
+}
+
+.band-dark {
+  background: var(--grafite);
+  color: var(--bianco-gesso);
+}
+
+.band-concrete {
+  background: var(--cemento);
+}
+
+.section-head {
+  margin-bottom: clamp(2rem, 5vw, 3.2rem);
+
+  h2 {
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    margin: 0.5rem 0 0;
+  }
+
+  .lead {
+    max-width: 42rem;
+  }
+}
+
+// --- Bottoni ---
+.btn {
+  font-weight: 700;
+}
+
+.btn-lg {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.85rem 1.6rem;
+}
+
+.btn-whatsapp {
+  --bs-btn-bg: #25d366;
+  --bs-btn-border-color: #25d366;
+  --bs-btn-color: #17191c;
+  --bs-btn-hover-bg: #1fb457;
+  --bs-btn-hover-border-color: #1fb457;
+  --bs-btn-hover-color: #17191c;
+  --bs-btn-active-bg: #1a9c4b;
+  --bs-btn-active-border-color: #1a9c4b;
+  --bs-btn-active-color: #17191c;
+}
+
+// --- Comparsa allo scroll (direttiva appReveal) ---
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

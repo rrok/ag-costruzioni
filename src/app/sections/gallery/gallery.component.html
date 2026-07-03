@@ -1,0 +1,32 @@
+<section id="lavori" class="section">
+  <div class="container">
+    <div
+      class="section-head d-flex flex-wrap justify-content-between align-items-end gap-3"
+      appReveal
+    >
+      <div>
+        <p class="eyebrow">Lavori</p>
+        <h2 class="font-display">Cantieri <span class="tape">consegnati</span></h2>
+      </div>
+      <p class="nota-foto">
+        Foto d'archivio temporanee — presto quelle dei nostri cantieri.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (lavoro of lavori; track lavoro.titolo) {
+        <div class="col-sm-6 col-lg-4" appReveal>
+          <figure class="lavoro-card">
+            <div class="lavoro-foto ratio ratio-4x3">
+              <img [src]="lavoro.img" [alt]="lavoro.alt" loading="lazy" />
+            </div>
+            <figcaption>
+              <span class="lavoro-cat">{{ lavoro.categoria }}</span>
+              <strong>{{ lavoro.titolo }}</strong>
+            </figcaption>
+          </figure>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+<section id="servizi" class="section">
+  <div class="container">
+    <div class="section-head" appReveal>
+      <p class="eyebrow">Cosa facciamo</p>
+      <h2 class="font-display">Tutto il cantiere, <span class="tape">una squadra</span></h2>
+      <p class="lead mt-3">
+        Dal primo scavo all'ultima finitura: non deleghiamo nulla, così tempi, costi e
+        qualità restano sotto controllo.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (servizio of servizi; track servizio.titolo) {
+        <div class="col-md-6 col-lg-4 d-flex" appReveal>
+          <article class="servizio-card w-100">
+            <div class="servizio-foto ratio ratio-4x3">
+              <img [src]="servizio.img" [alt]="servizio.alt" loading="lazy" />
+            </div>
+            <div class="servizio-corpo">
+              <h3>{{ servizio.titolo }}</h3>
+              <p>{{ servizio.descrizione }}</p>
+              <ul class="list-unstyled servizio-punti">
+                @for (punto of servizio.punti; track punto) {
+                  <li>{{ punto }}</li>
+                }
+              </ul>
+            </div>
+          </article>
+        </div>
+      }
+    </div>
+  </div>
+</section>

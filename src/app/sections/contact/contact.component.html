@@ -1,0 +1,124 @@
+<section id="contatti" class="section">
+  <div class="container">
+    <div class="row g-4 g-lg-5">
+      <div class="col-lg-6" appReveal>
+        <p class="eyebrow">Contatti</p>
+        <h2 class="font-display">Parliamo del tuo <span class="tape">progetto</span></h2>
+        <p class="lead mt-3 mb-4">
+          Compila il modulo: si apre WhatsApp con il messaggio già scritto e ti
+          rispondiamo in giornata lavorativa.
+        </p>
+
+        <form [formGroup]="form" (ngSubmit)="inviaSuWhatsApp()" novalidate>
+          <div class="mb-3">
+            <label class="form-label" for="nome">Nome e cognome *</label>
+            <input
+              class="form-control"
+              id="nome"
+              type="text"
+              formControlName="nome"
+              autocomplete="name"
+              [class.is-invalid]="nonValido('nome')"
+            />
+            <div class="invalid-feedback">
+              Scrivi come ti chiami, così sappiamo con chi parliamo.
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 mb-3">
+              <label class="form-label" for="telefono">Telefono (facoltativo)</label>
+              <input
+                class="form-control"
+                id="telefono"
+                type="tel"
+                formControlName="telefono"
+                autocomplete="tel"
+              />
+            </div>
+            <div class="col-sm-6 mb-3">
+              <label class="form-label" for="tipo">Tipo di lavoro</label>
+              <select class="form-select" id="tipo" formControlName="tipo">
+                <option value="">Scegli…</option>
+                @for (tipo of tipi; track tipo) {
+                  <option [value]="tipo">{{ tipo }}</option>
+                }
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label" for="messaggio">Raccontaci il lavoro *</label>
+            <textarea
+              class="form-control"
+              id="messaggio"
+              rows="4"
+              formControlName="messaggio"
+              placeholder="Es. Vorrei rifare il tetto di una casa a due piani a Forlimpopoli…"
+              [class.is-invalid]="nonValido('messaggio')"
+            ></textarea>
+            <div class="invalid-feedback">Due righe bastano: cosa serve e dove.</div>
+          </div>
+
+          <button class="btn btn-whatsapp btn-lg" type="submit">
+            <svg
+              class="icona-wa"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3-.4-4.3-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5v-.5c0-.1-.5-1.4-.7-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1 0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.3 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.3Z"
+              />
+            </svg>
+            Invia su WhatsApp
+          </button>
+          <p class="nota-privacy mt-3">
+            Il messaggio parte dal tuo WhatsApp: questo sito non salva nessun dato.
+          </p>
+        </form>
+      </div>
+
+      <div class="col-lg-6 d-flex flex-column gap-4" appReveal>
+        <dl class="scheda-contatti mb-0">
+          <div>
+            <dt>Telefono</dt>
+            <dd><a [href]="site.telefonoHref">{{ site.telefono }}</a></dd>
+          </div>
+          <div>
+            <dt>WhatsApp</dt>
+            <dd>
+              <a [href]="'https://wa.me/' + site.whatsapp" target="_blank" rel="noopener">
+                Scrivici direttamente
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt>Indirizzo</dt>
+            <dd>
+              <a [href]="site.mapsUrl" target="_blank" rel="noopener">
+                {{ site.indirizzo }}
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt>Orari</dt>
+            <dd>{{ site.orari }}</dd>
+          </div>
+          <div>
+            <dt>Zona di lavoro</dt>
+            <dd>{{ site.zona }}</dd>
+          </div>
+        </dl>
+
+        <iframe
+          class="mappa flex-grow-1"
+          [src]="mapsEmbed"
+          title="Mappa: dove trovarci"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>

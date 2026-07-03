@@ -1,0 +1,87 @@
+.hero {
+  min-height: 100svh;
+  padding-top: 90px;
+  color: var(--bianco-gesso);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(23, 25, 28, 0.72) 0%,
+      rgba(23, 25, 28, 0.45) 45%,
+      rgba(23, 25, 28, 0.85) 100%
+    ),
+    url('/img/hero.jpg') center / cover no-repeat;
+}
+
+.hero-title {
+  font-size: clamp(3.1rem, 9vw, 6.4rem);
+  margin: 0.9rem 0 1.2rem;
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  max-width: 40rem;
+  color: rgba(247, 245, 241, 0.92);
+  margin-bottom: 2rem;
+}
+
+.hero-strip {
+  border-top: 1px solid rgba(247, 245, 241, 0.15);
+  background: rgba(23, 25, 28, 0.55);
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    &::before {
+      content: '';
+      width: 0.5rem;
+      height: 0.5rem;
+      background: var(--giallo);
+    }
+  }
+}
+
+// Comparsa orchestrata al caricamento
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-content > * {
+  animation: hero-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero-content > :nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.hero-content > :nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.hero-content > :nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.hero-strip {
+  animation: hero-in 0.7s 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content > *,
+  .hero-strip {
+    animation: none;
+  }
+}

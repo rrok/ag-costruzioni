@@ -1,0 +1,35 @@
+<section id="recensioni" class="section band-dark">
+  <div class="container">
+    <div class="section-head" appReveal>
+      <p class="eyebrow">Dicono di noi</p>
+      <h2 class="font-display"><span class="tape">5,0 stelle</span> su Google</h2>
+    </div>
+
+    <div class="row g-4">
+      @for (recensione of recensioni; track recensione.autore) {
+        <div class="col-md-4 d-flex" appReveal>
+          <figure class="recensione w-100">
+            <div class="stelle" role="img" aria-label="5 stelle su 5">
+              &#9733;&#9733;&#9733;&#9733;&#9733;
+            </div>
+            <blockquote>&ldquo;{{ recensione.testo }}&rdquo;</blockquote>
+            <figcaption>
+              <strong>{{ recensione.autore }}</strong>
+              <span>{{ recensione.fonte }}</span>
+            </figcaption>
+          </figure>
+        </div>
+      }
+    </div>
+
+    <a
+      class="btn btn-outline-light mt-4"
+      [href]="site.mapsUrl"
+      target="_blank"
+      rel="noopener"
+      appReveal
+    >
+      Leggi le recensioni su Google
+    </a>
+  </div>
+</section>
