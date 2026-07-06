@@ -32,3 +32,4 @@ statico (Netlify, Vercel, GitHub Pages, Aruba…).
   delle foto reali dei cantieri: c'è una piccola nota nella sezione "Lavori"
   da togliere quando le sostituisci.
 - Nessun dato utente viene salvato: il messaggio parte dal WhatsApp del visitatore.
+# ag-costruzioni
